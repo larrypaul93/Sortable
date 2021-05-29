@@ -1109,9 +1109,7 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
 		}
 
 
-		if (evt.preventDefault !== void 0) {
-			evt.cancelable && evt.preventDefault();
-		}
+		
 
 
 		target = closest(target, options.draggable, el, true);
@@ -1141,6 +1139,9 @@ Sortable.prototype = /** @lends Sortable.prototype */ {
 				)
 			)
 		) {
+			if (evt.preventDefault !== void 0) {
+				evt.cancelable && evt.preventDefault();
+			}
 			vertical = this._getDirection(evt, target) === 'vertical';
 
 			dragRect = getRect(dragEl);
