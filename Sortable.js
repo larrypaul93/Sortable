@@ -1940,9 +1940,20 @@
 
       target = closest(target, options.draggable, el, true);
       dragOverEvent('dragOver');
-      if (Sortable.eventCanceled) return completedFired;
+
+      if (Sortable.eventCanceled) {
+        if (evt.preventDefault !== void 0) {
+          evt.cancelable && evt.preventDefault();
+        }
+
+        return completedFired;
+      }
 
       if (dragEl.contains(evt.target) || target.animated && target.animatingX && target.animatingY || _this._ignoreWhileAnimating === target) {
+        if (evt.preventDefault !== void 0) {
+          evt.cancelable && evt.preventDefault();
+        }
+
         return completed(false);
       }
 
