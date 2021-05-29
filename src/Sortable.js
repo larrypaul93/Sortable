@@ -1734,7 +1734,7 @@ function _globalDragOver(/**Event*/evt) {
 	if (evt.dataTransfer) {
 		evt.dataTransfer.dropEffect = 'move';
 	}
-	evt.cancelable && evt.preventDefault();
+	// evt.cancelable && evt.preventDefault();
 }
 
 function onMove(fromEl, toEl, dragEl, dragRect, targetEl, targetRect, originalEvent, willInsertAfter) {
